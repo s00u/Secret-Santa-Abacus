@@ -7,7 +7,7 @@ import streamlit as st
 
 # --- CONFIGURACIÓN DEL CORREO EMISOR ---
 # Nota: Si usas Gmail, necesitas generar una "Contraseña de Aplicación" en tu cuenta de Google.
-SMTP_SERVER = "://gmail.com"
+SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 SENDER_EMAIL = st.secrets["SENDER_EMAIL"]
 SENDER_PASSWORD = st.secrets["SENDER_PASSWORD"]
