@@ -8,7 +8,7 @@ import streamlit as st
 # --- CONFIGURACIÓN DEL CORREO EMISOR ---
 # Nota: Si usas Gmail, necesitas generar una "Contraseña de Aplicación" en tu cuenta de Google.
 SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
+SMTP_PORT = 465
 SENDER_EMAIL = st.secrets["SENDER_EMAIL"]
 SENDER_PASSWORD = st.secrets["SENDER_PASSWORD"]
 
@@ -58,8 +58,7 @@ def enviar_correo(to_email, nombre_remitente, nombre_asignado, deseos_asignado):
     msg.attach(MIMEText(cuerpo, 'plain', 'utf-8'))
 
     try:
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        server.starttls()
+        server = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
         server.login(SENDER_EMAIL, SENDER_PASSWORD)
         server.sendmail(SENDER_EMAIL, to_email, msg.as_string())
         server.quit()
