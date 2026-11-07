@@ -9,8 +9,9 @@ import streamlit as st
 # Nota: Si usas Gmail, necesitas generar una "Contraseña de Aplicación" en tu cuenta de Google.
 SMTP_SERVER = "://gmail.com"
 SMTP_PORT = 587
-SENDER_EMAIL = "ilse.ortega@abacus.mx"  # Reemplaza con tu correo
-SENDER_PASSWORD = "Abacus10"  # Reemplaza con tu contraseña de aplicación
+SENDER_EMAIL = st.secrets["SENDER_EMAIL"]
+SENDER_PASSWORD = st.secrets["SENDER_PASSWORD"]
+
 
 # --- CONFIGURACIÓN DE BASE DE DATOS ---
 def init_db():
